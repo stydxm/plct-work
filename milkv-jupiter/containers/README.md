@@ -7,15 +7,16 @@ Docker是一个开放源代码的开放平台软件，用于开发应用、交�
 #### demo源码链接
 https://github.com/moby/moby
 
+#### 环境说明
+硬件：Milkv Jupiter
+
+系统：Bianbu 1.0.15 (GNU/Linux 6.1.15 riscv64)
+
 ### Demo运行
-当前Docker Hub上已有一些支持riscv64的镜像[^1]，但Docker Engine暂时无法[^2]在risc-v架构的机器上直接安装
-
-[^1]: https://hub.docker.com/u/riscv64
-
-[^2]: https://docs.docker.com/engine/install/#supported-platforms
+[demo运行](docker.md)
 
 ### Demo运行总结
-等待上游支持，预计还需要很长时间
+需要自行编译，步骤较繁琐，耗时长
 
 ## Podman
 ### demo简介

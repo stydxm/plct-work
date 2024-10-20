@@ -3,13 +3,13 @@
 bianbu系统自带软件源中含有该包，可以直接安装
 
 ``` bash
-sudo apt install podman
+sudo apt install -y podman
 ```
 
 <details>
 <summary>日志</summary>
 ```
-stydxm@milkv-jupiter:~$ sudo apt install podman
+stydxm@milkv-jupiter:~$ sudo apt install -y podman
 正在读取软件包列表... 完成
 正在分析软件包的依赖关系树... 完成
 正在读取状态信息... 完成                 

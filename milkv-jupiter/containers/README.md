@@ -7,16 +7,22 @@ Docker是一个开放源代码的开放平台软件，用于开发应用、交�
 #### demo源码链接
 https://github.com/moby/moby
 
+#### sdk及链接
+[官网](https://www.docker.com/)不知道能不能算（？）
+
 #### 环境说明
 硬件：Milkv Jupiter
 
 系统：Bianbu 1.0.15 (GNU/Linux 6.1.15 riscv64)
 
 ### Demo运行
-[demo运行](docker.md)
+[Docker](docker.md)
+
+### sdk集成说明
+编译过程很顺利，建议直接进行自动化打包并放到软件源中
 
 ### Demo运行总结
-需要自行编译，步骤较繁琐，耗时长
+需要自行编译，步骤较繁琐，耗时长，但没有什么坑，比较顺利
 
 ## Podman
 ### demo简介
@@ -32,7 +38,7 @@ https://github.com/containers/podman
 系统：Bianbu 1.0.15 (GNU/Linux 6.1.15 riscv64)
 
 ### Demo运行
-[demo运行](podman.md)
+[podman](podman.md)
 
 ### Demo运行总结
 #### 问题及状态

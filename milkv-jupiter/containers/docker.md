@@ -4,7 +4,15 @@
 [^1]: https://hub.docker.com/u/riscv64
 
 [^2]: https://docs.docker.com/engine/install/#supported-platforms
-## 安装
+
+## apt安装
+进迭时空提供的软件源中有docker二进制包，可以直接下载
+
+``` bash
+sudo apt install docker.io
+```
+
+## 编译安装
 ### 安装编译过程中的依赖
 ``` bash
 sudo apt install -y pkg-config libseccomp2 libseccomp-dev runc crun containerd iptables

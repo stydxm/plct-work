@@ -19,10 +19,10 @@ https://github.com/moby/moby
 [Docker](docker.md)
 
 ### sdk集成说明
-编译过程很顺利，建议直接进行自动化打包并放到软件源中
+无
 
 ### Demo运行总结
-自行编译步骤较繁琐，耗时长，但没有什么坑，比较顺利
+安装使用均很方便，支持很好
 
 ## Podman
 ### demo简介

@@ -13,6 +13,8 @@ sudo apt install docker.io
 ```
 
 ## 编译安装
+**软件源中已有二进制包*，不推荐手动编译安装**
+
 ### 安装编译过程中的依赖
 ``` bash
 sudo apt install -y pkg-config libseccomp2 libseccomp-dev runc crun containerd iptables
@@ -71,16 +73,11 @@ sudo cp bundles/binary-daemon/dockerd /usr/local/bin/dockerd
 ```
 
 ### 编写systemd配置文件
-```
-cat << EOF | sudo tee -a /etc/systemd/system/containerd.service
-[Unit]
-Description=containerd container runtime
-Documentation=https://containerd.io
-After=network.target
 
-[Service]
-ExecStartPre=-/sbin/modprobe overlay
-ExecStart=/usr/local/bin/containerd
+<details>
+<summary>展开</summary>
+
+```</details>containerd
 KillMode=process
 Delegate=yes
 LimitNOFILE=1048576
@@ -167,6 +164,8 @@ sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
+</details>
+
 ## 运行Hello World镜像
 在命令行中输入
 
@@ -202,6 +201,25 @@ For more examples and ideas, visit:
 ## 在容器中运行其他发行版
 ``` bash
 sudo docker run -it --rm ubuntu bash
+```
+
+## 构建容器镜像
+例如，Python官方的docker镜像没有提供riscv64架构的，我们可以使用系统镜像构建一个
+
+先编写一个Dockerfile
+
+``` dockerfile
+FROM alpine:3.20
+
+RUN apk add --update --no-cache python3 py3-pip
+
+CMD ["python3"]
+```
+
+然后构建容器镜像
+
+``` bash
+sudo docker build -t python .
 ```
 
 参考：https://github.com/carlosedp/riscv-bringup/

@@ -35,7 +35,7 @@ https://github.com/containers/podman
 #### 环境说明
 硬件：Milkv Jupiter
 
-系统：Bianbu 1.0.15 (GNU/Linux 6.1.15 riscv64)
+系统：Bianbu 2.0 (GNU/Linux 6.6.36 riscv64)
 
 ### Demo运行
 [podman](podman.md)
@@ -43,22 +43,51 @@ https://github.com/containers/podman
 ### Demo运行总结
 #### 问题及状态
 ##### 安装报错
+安装会报错缺少一些蓝牙的固件，但目前使用时未发现有问题（可能因为没有调用到这些硬件）
+
+<details>
+
 ```
-update-initramfs: Generating /boot/initrd.img-6.1.15
+update-initramfs: Generating /boot/initrd.img-6.6.36
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852cu_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852cu_fw_v2.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852cu_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852bu_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852bu_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852bs_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852bs_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852au_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8852au_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8851bu_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8851bu_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8822cu_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8822cu_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8822cs_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8822cs_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8822b_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8822b_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8821cs_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8821cs_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8821c_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8821c_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8821a_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8821a_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8761bu_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8761bu_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8761b_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8761b_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8761a_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8761a_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723ds_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723ds_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723d_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723d_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723cs_xx_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723cs_xx_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723cs_vf_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723cs_vf_fw.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723cs_cg_config.bin for built-in driver btrtl
+W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723cs_cg_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723bs_config.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723bs_fw.bin for built-in driver btrtl
 W: Possible missing firmware /lib/firmware/rtl_bt/rtl8723b_config.bin for built-in driver btrtl
@@ -68,22 +97,4 @@ W: Possible missing firmware /lib/firmware/regulatory.db for built-in driver cfg
 W: Possible missing firmware /lib/firmware/regulatory.db.p7s for built-in driver cfg80211
 ```
 
-##### 普通用户启动容器失败
-使用Podman启动容器，会报错找不到tun
-```
-Error: /usr/bin/slirp4netns failed: "open(\"/dev/net/tun\"): No such file or directory\nWARNING: Support for seccomp is experimental\nWARNING: Support for IPv6 is experimental\nchild failed(1)\nWARNING: Support for seccomp is experimental\nWARNING: Support for IPv6 is experimental\n"
-```
-
-若尝试用modprobe加载，也会报错：
-
-```
-modprobe: FATAL: Module tun not found in directory /lib/modules/6.1.15
-```
-
-用`find /lib/modules/ | grep tun`命令查看，确实没有该模块（在我的x86 arch机器上，能找到`kernel/drivers/net/tun.ko.zst`）
-
-##### 管理员用户启动容器失败
-使用sudo权限，则会由netavark报错，怀疑问题还是出在tun
-```
-Error: netavark: No such file or directory (os error 2)
-```
+</details>

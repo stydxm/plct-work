@@ -26,6 +26,7 @@ sudo apt install git autoconf automake make gcc m4 pkg-config
 ```bash
 git clone --recurse-submodules https://github.com/linux-test-project/ltp.git
 cd ltp
+git checkout 20250530
 make autotools
 ./configure
 make -j$(nproc)
@@ -33,6 +34,10 @@ sudo make install
 ```
 
 ## 运行
+
+为了统一测试内容，在编译前将git设置到tag为20250530的提交
+
+### Kirk
 
 LTP使用一个叫 [Kirk](https://github.com/linux-test-project/kirk) 的工具运行，在 `make install` 时它也会被一同安装到 `/opt/ltp/kirk`，它的用法可参考文档或使用 `-h` 查看
 
@@ -62,3 +67,7 @@ Connecting to SUT: host
 ```
 
 测试的log和结果将会被保存 在`/tmp/kirk.root/tmpxxxx` 中可供查看
+
+### runltp
+
+虽然现在 Kirk 是推荐的运行 LTP 的方式，但它有明显不足：不能一次运行所有测试项目，每次只能运行一个测试套件，而它的测试套件数量非常多，手动运行并整理结果非常麻烦，因此我们还是选择使用更老的 runltp 来运行测试

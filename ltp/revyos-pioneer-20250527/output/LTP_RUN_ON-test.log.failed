@@ -1,0 +1,38 @@
+leapsec01 leapsec01
+ksm01_1 ksm01 -u 128
+ksm02_1 ksm02 -u 128
+ksm03 ksm03
+ksm03_1 ksm03 -u 128
+ksm04_1 ksm04 -u 128
+overcommit_memory01 overcommit_memory
+overcommit_memory03 overcommit_memory -R 30
+overcommit_memory04 overcommit_memory -R 80
+overcommit_memory05 overcommit_memory -R 100
+overcommit_memory06 overcommit_memory -R 200
+irqbalance01 irqbalance01
+cgroup cgroup_regression_test.sh
+cgroup_fj_function_cpuset cgroup_fj_function.sh cpuset
+cgroup_fj_stress_cpuset_2_2_none cgroup_fj_stress.sh cpuset 2 2 none
+cgroup_fj_stress_cpuset_3_3_none cgroup_fj_stress.sh cpuset 3 3 none
+cgroup_fj_stress_cpuset_4_4_none cgroup_fj_stress.sh cpuset 4 4 none
+cgroup_fj_stress_cpuset_2_9_none cgroup_fj_stress.sh cpuset 2 9 none
+cgroup_fj_stress_cpuset_10_3_none cgroup_fj_stress.sh cpuset 10 3 none
+cgroup_fj_stress_cpuset_1_200_none cgroup_fj_stress.sh cpuset 1 200 none
+cgroup_fj_stress_cpuset_200_1_none cgroup_fj_stress.sh cpuset 200 1 none
+cgroup_fj_stress_cpuset_2_2_one cgroup_fj_stress.sh cpuset 2 2 one
+cgroup_fj_stress_cpuset_3_3_one cgroup_fj_stress.sh cpuset 3 3 one
+cgroup_fj_stress_cpuset_4_4_one cgroup_fj_stress.sh cpuset 4 4 one
+cgroup_fj_stress_cpuset_2_9_one cgroup_fj_stress.sh cpuset 2 9 one
+cgroup_fj_stress_cpuset_10_3_one cgroup_fj_stress.sh cpuset 10 3 one
+cgroup_fj_stress_cpuset_1_200_one cgroup_fj_stress.sh cpuset 1 200 one
+cgroup_fj_stress_cpuset_200_1_one cgroup_fj_stress.sh cpuset 200 1 one
+cgroup_fj_stress_cpuset_2_2_each cgroup_fj_stress.sh cpuset 2 2 each
+cgroup_fj_stress_cpuset_3_3_each cgroup_fj_stress.sh cpuset 3 3 each
+cgroup_fj_stress_cpuset_4_4_each cgroup_fj_stress.sh cpuset 4 4 each
+cgroup_fj_stress_cpuset_2_9_each cgroup_fj_stress.sh cpuset 2 9 each
+cgroup_fj_stress_cpuset_10_3_each cgroup_fj_stress.sh cpuset 10 3 each
+cgroup_fj_stress_cpuset_1_200_each cgroup_fj_stress.sh cpuset 1 200 each
+cgroup_fj_stress_cpuset_200_1_each cgroup_fj_stress.sh cpuset 200 1 each
+hugemmap15 hugemmap15
+hugemmap24 hugemmap24
+nm01_sh nm01.sh

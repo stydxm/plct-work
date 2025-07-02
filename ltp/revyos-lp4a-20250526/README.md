@@ -65,6 +65,9 @@ sudo /opt/ltp/runltp -p -l ./result.log -o ./test.log -g ./result.html
 Total Tests: 2472
 Total Skipped Tests: 340
 Total Failures: 61
+Kernel Version: 6.6.92-th1520
+Machine Architecture: riscv64
+Hostname: revyos-lpi4a
 ```
 
 ## 错误分析

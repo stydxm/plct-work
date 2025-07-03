@@ -75,6 +75,7 @@ Hostname: revyos-upstream
 |测试用例|错误原因|
 |:-:|:-:|
 |leapsec01|TBROK: adjtimex status 8208 not set|
+|clock_settime03|超时时间设为100倍（3000s）后仍超时|
 |overcommit_memory01|TINFO: malloc 261887544 kB failed<br /> TFAIL: alloc failed, expected to pass|
 |overcommit_memory03|TINFO: malloc 261887544 kB failed<br /> TFAIL: alloc failed, expected to pass|
 |overcommit_memory04|TINFO: malloc 261887544 kB failed<br /> TFAIL: alloc failed, expected to pass|
@@ -82,7 +83,7 @@ Hostname: revyos-upstream
 |overcommit_memory06|TINFO: malloc 261887544 kB failed<br /> TFAIL: alloc failed, expected to pass|
 |irqbalance01|TFAIL: Heuristic: Detected 0 irq-cpu pairs have been dissallowed|
 |cgroup|脚本无法运行|
-|cgroup_fj_function_cpuset|脚本无法运行|
+|cgroup_fj_*|脚本无法运行|
 |hugemmap15|TFAIL: icache unclean<br />HINT: You _MAY_ be missing kernel fixes:<br />https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cbf52afdc0eb|
 |hugemmap24|hugemmap24.c:62: TINFO: can't use slice_boundary: 0x20000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x30000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x40000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x50000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x60000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x70000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x80000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x90000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0xa0000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0xb0000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0xc0000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0xd0000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0xe0000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0xf0000000000: ENOMEM (12)<br />hugemmap24.c:62: TINFO: can't use slice_boundary: 0x100000000000: ENOMEM (12)<br />hugemmap24.c:71: TFAIL: couldn't find 2 free neighbour slices: ENOMEM (12)|
 |nm01_sh|脚本无法运行|
@@ -91,6 +92,7 @@ Hostname: revyos-upstream
 
 部分测试用例超时，将`LTP_TIMEOUT_MUL`设为10后通过
 
+- clock_nanosleep02
 - ksm01_1
 - ksm02
 - ksm02_1

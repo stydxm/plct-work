@@ -1,9 +1,6 @@
+clock_nanosleep02 clock_nanosleep02
 leapsec01 leapsec01
-ksm01_1 ksm01 -u 128
-ksm02_1 ksm02 -u 128
-ksm03 ksm03
-ksm03_1 ksm03 -u 128
-ksm04_1 ksm04 -u 128
+clock_settime03 clock_settime03
 overcommit_memory01 overcommit_memory
 overcommit_memory03 overcommit_memory -R 30
 overcommit_memory04 overcommit_memory -R 80
